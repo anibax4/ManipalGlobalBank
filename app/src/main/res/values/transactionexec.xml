@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="transaction_exec">
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'kumarbv\', \'1985466.56\' , \'8500.00\' , \'Db\' , \'2016-12-24 16:48:40\' , \'Car Service\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'kumarbv\', \'1975466.56\' , \'10000.00\' , \'Db\' , \'2016-12-25 12:33:26\' , \'ATM\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'kumarbv\', \'2040466.56\' , \'65000.00\' , \'Cr\' , \'2017-01-02 18:21:11\' , \'MIT\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'kumarbv\', \'2036252.79\' , \'4213.77\' , \'Db\' , \'2017-01-02 20:10:34\' , \'Electricity BIll\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'kumarbv\', \'2033927.47\' , \'2325.32\' , \'Db\' , \'2017-01-02 20:21:15\' , \'Water BIll\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'kumarbv\', \'2053927.47\' , \'22000.00\' , \'Cr\' , \'2017-01-02 20:21:15\' , \'Milton Inc.\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'kumarbv\', \'2043927.47\' , \'10000.00\' , \'Db\' , \'2017-01-03 11:03:20\' , \'Louis Philippe\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'kumarbv\', \'2038696.69\' , \'5230.78\' , \'Db\' , \'2017-01-03 11:32:54\' , \'Big Bazaar\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'kumarbv\', \'2036396.69\' , \'2300.00\' , \'Db\' , \'2017-01-03 12:22:31\' , \'McDonalds\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'kumarbv\', \'2042909.18\' , \'6512.49\' , \'Cr\' , \'2017-01-08 15:00:00\' , \'Interest\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'kumarbv\', \'2040809.18\' , \'2100.00\' , \'Db\' , \'2017-01-21 16:12:25\' , \'Yamaha\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'kumarbv\', \'2039999.18\' , \'810.00\' , \'Db\' , \'2017-01-26 19:01:04\' , \'Shoppee\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'kumarbv\', \'2104999.18\' , \'65000.00\' , \'Cr\' , \'2017-02-02 18:11:08\' , \'MIT\' )</item>
+
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'deepeshk\', \'1985466.56\' , \'8500.00\' , \'Db\' , \'2016-12-24 16:48:40\' , \'Car Service 4\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'deepeshk\', \'1975466.56\' , \'10000.00\' , \'Db\' , \'2016-12-25 12:33:26\' , \'ATM\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'deepeshk\', \'2040466.56\' , \'65000.00\' , \'Cr\' , \'2017-01-02 18:21:11\' , \'MIT\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'deepeshk\', \'2036252.79\' , \'4213.77\' , \'Db\' , \'2017-01-02 20:10:34\' , \'Electricity BIll\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'deepeshk\', \'2033927.47\' , \'2325.32\' , \'Db\' , \'2017-01-02 20:21:15\' , \'Water BIll\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'deepeshk\', \'2053927.47\' , \'22000.00\' , \'Cr\' , \'2017-01-02 20:21:15\' , \'Milton Inc.\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'deepeshk\', \'2043927.47\' , \'10000.00\' , \'Db\' , \'2017-01-03 11:03:20\' , \'Louis Philippe\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'deepeshk\', \'2038696.69\' , \'5230.78\' , \'Db\' , \'2017-01-03 11:32:54\' , \'Big Bazaar\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'deepeshk\', \'2036396.69\' , \'2300.00\' , \'Db\' , \'2017-01-03 12:22:31\' , \'McDonalds\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'deepeshk\', \'2042909.18\' , \'6512.49\' , \'Cr\' , \'2017-01-08 15:00:00\' , \'Interest\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'deepeshk\', \'2040809.18\' , \'2100.00\' , \'Db\' , \'2017-01-21 16:12:25\' , \'Yamaha\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'deepeshk\', \'2039999.18\' , \'810.00\' , \'Db\' , \'2017-01-26 19:01:04\' , \'Shoppee\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'deepeshk\', \'2104999.18\' , \'65000.00\' , \'Cr\' , \'2017-02-02 18:11:08\' , \'MIT\' )</item>
+
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'radeeshk\', \'1985466.56\' , \'8500.00\' , \'Db\' , \'2016-12-24 16:48:40\' , \'Car Service 4\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'radeeshk\', \'1975466.56\' , \'10000.00\' , \'Db\' , \'2016-12-25 12:33:26\' , \'ATM\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'radeeshk\', \'2040466.56\' , \'65000.00\' , \'Cr\' , \'2017-01-02 18:21:11\' , \'MIT\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'radeeshk\', \'2036252.79\' , \'4213.77\' , \'Db\' , \'2017-01-02 20:10:34\' , \'Electricity BIll\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'radeeshk\', \'2033927.47\' , \'2325.32\' , \'Db\' , \'2017-01-02 20:21:15\' , \'Water BIll\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'radeeshk\', \'2053927.47\' , \'22000.00\' , \'Cr\' , \'2017-01-02 20:21:15\' , \'Milton Inc.\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'radeeshk\', \'2043927.47\' , \'10000.00\' , \'Db\' , \'2017-01-03 11:03:20\' , \'Louis Philippe\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'radeeshk\', \'2038696.69\' , \'5230.78\' , \'Db\' , \'2017-01-03 11:32:54\' , \'Big Bazaar\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'radeeshk\', \'2036396.69\' , \'2300.00\' , \'Db\' , \'2017-01-03 12:22:31\' , \'McDonalds\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'radeeshk\', \'2042909.18\' , \'6512.49\' , \'Cr\' , \'2017-01-08 15:00:00\' , \'Interest\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'radeeshk\', \'2040809.18\' , \'2100.00\' , \'Db\' , \'2017-01-21 16:12:25\' , \'Yamaha\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'radeeshk\', \'2039999.18\' , \'810.00\' , \'Db\' , \'2017-01-26 19:01:04\' , \'Shoppee\' )</item>
+        <item>insert into Transactions (_userID, _balance, _transactionAmount, _transactionType, _date, _transactionAgainst)
+            values( \'radeeshk\', \'2104999.18\' , \'65000.00\' , \'Cr\' , \'2017-02-02 18:11:08\' , \'MIT\' )</item>
+
+    </string-array>
+</resources>

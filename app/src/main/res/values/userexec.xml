@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="user_exec">
+        <item>insert into User (_userID, _userName, _password) values(\'kumarbv\',\'B.V.Kumar\', \'password\')</item>
+        <item>insert into User (_userID, _userName,_password) values(\'deepeshk\',\'K. Deepesh\', \'password\')</item>
+        <item>insert into User (_userID, _userName,_password) values(\'radeeshk\',\'K. Radeesh\', \'password\')</item>
+    </string-array>
+</resources>

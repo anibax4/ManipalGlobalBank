@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Manipal Global Bank</string>
+    <string name="app_name_caps">MANIPAL GLOBAL BANK</string>
+
+    <string name="login_btn">Login</string>
+    <string name="login_id">UserID</string>
+    <string name="login_password">Password</string>
+    <string name="login_forgot_password">Forgot your password?</string>
+    <string name="login_contact">Call us on +91 80 8137903156</string>
+
+    <string name="title_activity_latest_transactions">LatestTransactionsActivity</string>
+    <string name="last_ten_transaction_btn">Last 10 Transactions</string>
+    <string name="statement_btn">Statement of Account</string>
+    <string name="fund_transfer_btn">Transfer Funds</string>
+    <string name="utility_payment_btn">Utility Payment</string>
+    <string name="logout_btn">Logout</string>
+
+    <string name="home_btn">Home</string>
+
+    <string name="pay_text">Enter the Amount to Transfer</string>
+    <string name="transfer_btn">Transfer</string>
+    <string name="pay_btn">Pay</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_scrolling">ScrollingActivity</string>
+
+
+</resources>
