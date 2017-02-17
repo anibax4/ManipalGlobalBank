@@ -1,0 +1,2 @@
+# ManipalGlobalBank
+Manipal Project
