@@ -37,7 +37,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         TextView balanceTopTV = (TextView)findViewById(R.id.tv_balanceTopView);
-        balanceTopTV.invalidate();
+        balanceTopTV.setText(Float.toString(databaseHelper.getLatestBalance(loggedUserID)));
 
     }
 

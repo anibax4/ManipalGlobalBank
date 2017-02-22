@@ -44,7 +44,7 @@ public class UtilityPaymentActivity extends AppCompatActivity implements Adapter
     }
 
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+    public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
 
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(UtilityPaymentActivity.this);
 
@@ -60,8 +60,8 @@ public class UtilityPaymentActivity extends AppCompatActivity implements Adapter
 
                 Intent intent = getIntent();
                 String loggedUserID = intent.getStringExtra("userid");
-                TextView transAmount = (TextView) findViewById(R.id.transactionBillAmountTextView);
-                TextView transAgainst = (TextView) findViewById(R.id.transactionBillAgainstTextView);
+                TextView transAmount = (TextView) view.findViewById(R.id.transactionBillAmountTextView);
+                TextView transAgainst = (TextView) view.findViewById(R.id.transactionBillAgainstTextView);
                 float amount = Float.parseFloat(transAmount.getText().toString());
 
 

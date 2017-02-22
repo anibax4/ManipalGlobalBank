@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.preference.PreferenceManager;
+import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -148,6 +149,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         else
             return "";
+    }
+
+    public List<String> getOtherUsers(String userID) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        List<String> idList = new ArrayList<String>();
+        Cursor cursor = db.query(USERS_TABLE, new String[]{USER_ID}, USER_ID + "!= ?", new String[]{userID}, null, null, null);
+        if (cursor.moveToFirst()) {
+            do {
+                idList.add(cursor.getString(0));
+
+                // Creating adapter for spinner
+            } while (cursor.moveToNext());
+        }
+        return idList;
     }
 
 //    public void addTransaction(String userid) {
