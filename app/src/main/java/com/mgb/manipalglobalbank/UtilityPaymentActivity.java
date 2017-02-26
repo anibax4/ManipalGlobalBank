@@ -18,6 +18,8 @@ public class UtilityPaymentActivity extends AppCompatActivity implements Adapter
     static float number[] = {1000.00f, 4312.34f, 1245.67f};
     DatabaseHelper db = new DatabaseHelper(this);
     Transaction transaction = new Transaction();
+    String loggedUserID;
+    float currentBalanceFloat;
 
 
     ListView lview;
@@ -27,12 +29,18 @@ public class UtilityPaymentActivity extends AppCompatActivity implements Adapter
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_utility_payment);
+        Intent intent = getIntent();
+        loggedUserID = intent.getStringExtra("userid");
 
 //        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.item_payments, R.id.transactionBillAgainstTextView, R.id.transactionBillAmountTextView, values);
 //        ArrayAdapter<String> adapter = new ArrayAdapter<String>()
 //        listItem = (ListView)findViewById(R.id.utilityPaymentListView);
 //        listItem.setAdapter(adapter);
 
+        currentBalanceFloat = db.getLatestBalance(loggedUserID);
+        TextView balanceTopTV = (TextView)findViewById(R.id.utilityTV_balanceTopView);
+
+        balanceTopTV.setText(Float.toString(currentBalanceFloat));
 
         lview = (ListView) findViewById(R.id.utilityPaymentListView);
         lviewAdapter = new UtilityPaymentAdapter(this, values, number);
@@ -58,8 +66,7 @@ public class UtilityPaymentActivity extends AppCompatActivity implements Adapter
         alertDialog.setPositiveButton("CONFIRM", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog,int which) {
 
-                Intent intent = getIntent();
-                String loggedUserID = intent.getStringExtra("userid");
+
                 TextView transAmount = (TextView) view.findViewById(R.id.transactionBillAmountTextView);
                 TextView transAgainst = (TextView) view.findViewById(R.id.transactionBillAgainstTextView);
                 float amount = Float.parseFloat(transAmount.getText().toString());

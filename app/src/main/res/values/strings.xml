@@ -14,12 +14,21 @@
     <string name="fund_transfer_btn">Transfer Funds</string>
     <string name="utility_payment_btn">Utility Payment</string>
     <string name="logout_btn">Logout</string>
+    <string name="current_balance">Current Balance</string>
+    <string name="home_screen_description">Please use the following functions to check your transactions, to transfer funds or to pay bills.</string>
 
     <string name="home_btn">Home</string>
 
     <string name="pay_text">Enter the Amount to Transfer</string>
     <string name="transfer_btn">Transfer</string>
     <string name="pay_btn">Pay</string>
+    <string name="transfer_screen_description">Please select the correct person to transfer the specified funds.</string>
+
+    <string name="utility_screen_description">Please tap on a bill to pay.</string>
+
+    <string name="latest_transaction_screen_description">Below listed are the 10 latest transaction completed by you.</string>
+
+    <string name="statement_screen_description">Below listed is the statement for this month.</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

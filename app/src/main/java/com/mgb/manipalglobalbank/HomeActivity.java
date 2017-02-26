@@ -9,10 +9,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.NumberFormat;
+import java.util.Comparator;
+import java.util.Currency;
+import java.util.Locale;
+import java.util.SortedMap;
+import java.util.TreeMap;
+
 public class HomeActivity extends AppCompatActivity {
 
     DatabaseHelper databaseHelper;
-    float currentBalanceFloat;
+    double currentBalanceFloat;
     String loggedUserID;
 
 
@@ -20,15 +27,24 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        Locale locale = Locale.US;
+        NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);
+
+
         databaseHelper = new DatabaseHelper(this);
         Intent intent = getIntent();
         loggedUserID = intent.getStringExtra("userid");
         currentBalanceFloat = databaseHelper.getLatestBalance(loggedUserID);
-        Log.v("Balance: ",Float.toString(currentBalanceFloat));
-        TextView balanceTopTV = (TextView)findViewById(R.id.tv_balanceTopView);
-        //balanceTopTV.invalidate();
 
-        balanceTopTV.setText(Float.toString(databaseHelper.getLatestBalance(loggedUserID)));
+        //String currencyText = fmt.format(currentBalanceFloat);
+        //holder.priceItem.setText(currencyText);
+
+        TextView balanceTopTV = (TextView)findViewById(R.id.tv_balanceTopView);
+
+        balanceTopTV.setText(fmt.format(currentBalanceFloat));
+
+        //balanceTopTV.setText(Float.toString(databaseHelper.getLatestBalance(loggedUserID)));
         Log.v("USERID: ",loggedUserID);
 
     }

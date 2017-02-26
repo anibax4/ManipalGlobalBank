@@ -64,21 +64,7 @@
             android:layout_below="@+id/textView11"
             android:layout_alignParentEnd="true"
             android:layout_marginRight="5dp" />
-
     </RelativeLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/transfer_screen_description"
-        android:id="@+id/textView12"
-        android:layout_below="@+id/relativeLayout"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="65dp"
-        android:textAlignment="center"
-        android:textStyle="italic"
-        android:textColor="@color/manipalOrange" />
 
     <RelativeLayout
         android:layout_width="match_parent"

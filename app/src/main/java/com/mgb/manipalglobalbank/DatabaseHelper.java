@@ -151,10 +151,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return "";
     }
 
+    public String getUserName(String userID){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.query(USERS_TABLE,new String[] {USER_NAME},USER_ID + "= ?", new String[] {userID},null, null, null);
+        res.moveToFirst();
+        if (res.getCount()==1) {
+            return res.getString(0);
+        }
+        else
+            return "";
+    }
+
+    public String getUserID(String userName){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.query(USERS_TABLE,new String[] {USER_ID},USER_NAME + "= ?", new String[] {userName},null, null, null);
+        res.moveToFirst();
+        if (res.getCount()==1) {
+            return res.getString(0);
+        }
+        else
+            return "";
+    }
+
     public List<String> getOtherUsers(String userID) {
         SQLiteDatabase db = this.getReadableDatabase();
         List<String> idList = new ArrayList<String>();
-        Cursor cursor = db.query(USERS_TABLE, new String[]{USER_ID}, USER_ID + "!= ?", new String[]{userID}, null, null, null);
+        Cursor cursor = db.query(USERS_TABLE, new String[]{USER_NAME}, USER_ID + "!= ?", new String[]{userID}, null, null, null);
         if (cursor.moveToFirst()) {
             do {
                 idList.add(cursor.getString(0));
