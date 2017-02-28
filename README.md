@@ -25,7 +25,7 @@ Manipal Global Bank, MGB, is an International Banking Organization managing Savi
 
 ## Login Screen
 
-![alt tag](app/src/main/res/screenshots/login.png "Initial screen - Login")
+![alt tag](screenshots/login.png "Initial screen - Login")
 
 The Login activity is the first activity we see after the app launch. You can use the following login IDs to login.
 
@@ -37,7 +37,7 @@ Password for all three accounts is *password*.
 
 ## Home Screen
 
-![alt tag](app/src/main/res/screenshots/home.png "Home screen")
+![alt tag](screenshots/home.png "Home screen")
 
 All the functionalities the application can perform can be accessed from here. 
 
@@ -45,25 +45,25 @@ Pressing the BACK button from the Navigation Bar will quit the application. And 
 
 ## Last 10 Transactions
 
-![alt tag](app/src/main/res/screenshots/latest_transactions.png "Last 10 Transactions")
+![alt tag](screenshots/latest_transactions.png "Last 10 Transactions")
 
 Here the latest transactions are displayed (Limit to 10 entries).
 
 ## Statement of Account
 
-![alt tag](app/src/main/res/screenshots/statement.png "Statement of Account")
+![alt tag](screenshots/statement.png "Statement of Account")
 
 Here the statement is displayed.
 
 ## Transfer Funds
 
-![alt tag](app/src/main/res/screenshots/transfer_funds.png "Transfer Funds")
+![alt tag](screenshots/transfer_funds.png "Transfer Funds")
 
 Select the User to whom you want to transfer funds from the drop down list and tappin gthe Transfer button after entering the required amount. A dialog box appears asking you to confirm the transaction. The database is updated for both the users, which can be checked by login in as the other user and viewing their latest transactions.
 
 ## Utility Payments
 
-![alt tag](app/src/main/res/screenshots/utility_payment.png "Utility Payments")
+![alt tag](screenshots/utility_payment.png "Utility Payments")
 
 By tapping a bill, you can complete the payment of that particular bill. A dialog box appears asking you to confirm the transaction.
 
