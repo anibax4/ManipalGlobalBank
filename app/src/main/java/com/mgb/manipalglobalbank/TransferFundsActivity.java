@@ -27,78 +27,49 @@ public class TransferFundsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_transfer_funds);
         Intent intent = getIntent();
         loggedUserID = intent.getStringExtra("userid");
-
         currentBalanceFloat = db.getLatestBalance(loggedUserID);
 
         TextView balanceTopTV = (TextView)findViewById(R.id.transferTV_balanceTopView);
-
         balanceTopTV.setText(Float.toString(currentBalanceFloat));
 
-
         Spinner spinner = (Spinner) findViewById(R.id.againstUserIDSpinner);
-
-        // Spinner Drop down elements
-
         List<String> users = db.getOtherUsers(loggedUserID);
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, users);
-
-        // Drop down layout style - list view with radio button
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // attaching data adapter to spinner
         spinner.setAdapter(dataAdapter);
     }
 
     public void transferOnClick(View v){
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(TransferFundsActivity.this);
-
-        // Setting Dialog Title
         alertDialog.setTitle("Confirm Transaction");
-
-        // Setting Dialog Message
         alertDialog.setMessage("Are you sure you want transfer the specified amount?");
-
-        // Setting Positive "Yes" Button
         alertDialog.setPositiveButton("CONFIRM", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog,int which) {
-
                 Intent intent = getIntent();
                 String loggedUserID = intent.getStringExtra("userid");
-
-                //TextView transAgainst = (TextView) findViewById(R.id.transactionBillAgainstTextView);
-
                 Spinner transAgainst = (Spinner) findViewById(R.id.againstUserIDSpinner);
                 String againstUser = db.getUserID(transAgainst.getSelectedItem().toString());
-
                 EditText amountET = (EditText) findViewById(R.id.transferAmountET);
                 float amount = Float.parseFloat(amountET.getText().toString());
 
-
                 db.addTransaction(new Transaction(loggedUserID,amount,
                         db.getLatestBalance(loggedUserID)-amount,"Db",db.getUserName(againstUser),transaction.setDateTime()));
-
                 db.addTransaction(new Transaction(againstUser,amount,
                         db.getLatestBalance(againstUser)+amount,"Cr",db.getUserName(loggedUserID),transaction.setDateTime()));
 
                 TextView balanceTopTV = (TextView)findViewById(R.id.transferTV_balanceTopView);
                 balanceTopTV.setText(Float.toString(currentBalanceFloat));
                 balanceTopTV.invalidate();
-
-                // Write your code here to invoke YES event
                 Toast.makeText(getApplicationContext(), "Your transaction was successful", Toast.LENGTH_SHORT).show();
             }
         });
 
-        // Setting Negative "NO" Button
         alertDialog.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                // Write your code here to invoke NO event
                 dialog.cancel();
             }
         });
 
-        // Showing Alert Message
         alertDialog.show();
-
     }
 }

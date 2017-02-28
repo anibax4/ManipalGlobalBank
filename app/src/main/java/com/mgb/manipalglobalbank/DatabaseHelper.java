@@ -19,7 +19,6 @@ import java.util.List;
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-
     public static final String USERS_TABLE = "User";
     public static final String USER_ID = "_userID";
     public static final String USER_NAME = "_userName";
@@ -37,8 +36,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private Context appContext;
 
-
-    // creation SQLite statement
     private static final String DATABASE_CREATE_USER = "create table " + USERS_TABLE +
             "(" + USER_ID + " string primary key, " +
             USER_NAME + " string not null, " +
@@ -55,8 +52,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public DatabaseHelper(Context c) {
         super (c,DATABASE_NAME,null,DATABASE_VERSION);
         this.appContext = c;
-        //SQLiteDatabase db = this.getWritableDatabase();
-
     }
 
     @Override
@@ -70,18 +65,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         sharedpreferences = appContext.getSharedPreferences(MyPREFERENCES,Context.MODE_PRIVATE);
         if ( sharedpreferences.getBoolean("databaseCreated", true))
         {
-        String[] user = res.getStringArray(R.array.user_exec);
-        for (int i = 0; i < user.length; i++){
-            db.execSQL(user[i]);
-        }
-        String[] transactions = res.getStringArray(R.array.transaction_exec);
-        for (int i = 0; i < transactions.length; i++){
-            db.execSQL(transactions[i]);
-        }
+            String[] user = res.getStringArray(R.array.user_exec);
+            for (int i = 0; i < user.length; i++){
+                db.execSQL(user[i]);
+            }
+            String[] transactions = res.getStringArray(R.array.transaction_exec);
+            for (int i = 0; i < transactions.length; i++){
+                db.execSQL(transactions[i]);
+            }
             editor.putBoolean("databaseCreated",false);
             editor.commit();
         }
-
     }
 
     @Override
@@ -92,7 +86,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public float getLatestBalance(String userID){
         SQLiteDatabase db = this.getWritableDatabase();
-
         Cursor cursor = db.query(TRANSACTION_TABLE,new String[] {TRANSACTION_BALANCE},USER_ID + "= ?", new String[] {userID},null, null, "_date DESC");
         cursor.moveToFirst();
         return cursor.getFloat(0);
@@ -111,11 +104,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 transaction.setTransactionDate(cursor.getString(3));
                 transaction.setTransactionAgainst(cursor.getString(4));
                 transaction.setTransactionAmount(Float.parseFloat(cursor.getString(5)));
-                // Adding transaction to list
                 transactionList.add(transaction);
             } while (cursor.moveToNext());
         }
-
         return transactionList;
     }
 
@@ -132,11 +123,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 transaction.setTransactionDate(cursor.getString(3));
                 transaction.setTransactionAgainst(cursor.getString(4));
                 transaction.setTransactionAmount(Float.parseFloat(cursor.getString(5)));
-                // Adding transaction to list
                 transactionList.add(transaction);
             } while (cursor.moveToNext());
         }
-
         return transactionList;
     }
 
@@ -180,36 +169,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 idList.add(cursor.getString(0));
-
-                // Creating adapter for spinner
             } while (cursor.moveToNext());
         }
         return idList;
     }
 
-//    public void addTransaction(String userid) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        ContentValues values = new ContentValues();
-////        values.put(TransactionDBHelper.STUDENT_NAME,name);
-//        long studId = db.insert(DatabaseHelper.TRANSACTION_TABLE,null, values);
-//
-//    }
-
-    // Adding new transaction
     public void addTransaction(Transaction transaction) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(USER_ID, transaction.getUserID()); // Contact Name
-        values.put(TRANSACTION_AMOUNT, transaction.getTransactionAmount()); // Contact Phone Number
+        values.put(USER_ID, transaction.getUserID());
+        values.put(TRANSACTION_AMOUNT, transaction.getTransactionAmount());
         values.put(TRANSACTION_BALANCE, transaction.getBalance());
         values.put(TRANSACTION_TYPE, transaction.getTransactionType());
         values.put(TRANSACTION_AGAINST, transaction.getTransactionAgainst());
         values.put(TRANSACTION_DATE, transaction.getTransactionDate());
-
-        // Inserting Row
         db.insert(TRANSACTION_TABLE, null, values);
-        db.close(); // Closing database connection
+        db.close();
     }
-
 }

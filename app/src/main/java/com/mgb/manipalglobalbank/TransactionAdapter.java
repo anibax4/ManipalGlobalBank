@@ -19,28 +19,23 @@ public class TransactionAdapter extends ArrayAdapter<Transaction> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        // Get the data item for this position
         Transaction transaction = getItem(position);
-        // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_transactions, parent, false);
         }
 
-        // Lookup view for data population
         TextView tvType = (TextView) convertView.findViewById(R.id.transactionTypeTextView);
         TextView tvAmount = (TextView) convertView.findViewById(R.id.transactionAmountTextView);
         TextView tvAgainst = (TextView) convertView.findViewById(R.id.transactionAgainstTextView);
         TextView tvBalance = (TextView) convertView.findViewById(R.id.transactionBalanceTextView);
         TextView tvDate = (TextView) convertView.findViewById(R.id.transactionDateTextView);
 
-        // Populate the data into the template view using the data object
         tvType.setText(transaction.getTransactionType());
         tvDate.setText(transaction.getTransactionDate());
         tvAgainst.setText(transaction.getTransactionAgainst());
         tvAmount.setText(String.valueOf(transaction.getTransactionAmount()));
         tvBalance.setText(String.valueOf(transaction.getBalance()));
 
-        // Return the completed view to render on screen
         return convertView;
     }
 }

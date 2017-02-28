@@ -19,7 +19,6 @@ public class StatementActivity extends AppCompatActivity {
         Intent intent = getIntent();
         loggedUserID = intent.getStringExtra("userid");
         TransactionAdapter adapter = new TransactionAdapter(this, (ArrayList<Transaction>) transactionDB.getAllTransactions(loggedUserID));
-
         ListView listView = (ListView) findViewById(R.id.transactionsListView);
         listView.setAdapter(adapter);
     }

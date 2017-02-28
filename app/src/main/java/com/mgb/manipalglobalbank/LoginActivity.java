@@ -21,11 +21,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         userEditText = (EditText) findViewById(R.id.editText_userid);
         passwordEditText = (EditText) findViewById(R.id.editText_password);
         loginDB = new DatabaseHelper(this);
-
     }
 
     public void login(View v){

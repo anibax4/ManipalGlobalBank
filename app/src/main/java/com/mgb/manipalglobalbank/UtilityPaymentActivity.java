@@ -20,8 +20,6 @@ public class UtilityPaymentActivity extends AppCompatActivity implements Adapter
     Transaction transaction = new Transaction();
     String loggedUserID;
     float currentBalanceFloat;
-
-
     ListView lview;
     UtilityPaymentAdapter lviewAdapter;
 
@@ -32,14 +30,8 @@ public class UtilityPaymentActivity extends AppCompatActivity implements Adapter
         Intent intent = getIntent();
         loggedUserID = intent.getStringExtra("userid");
 
-//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.item_payments, R.id.transactionBillAgainstTextView, R.id.transactionBillAmountTextView, values);
-//        ArrayAdapter<String> adapter = new ArrayAdapter<String>()
-//        listItem = (ListView)findViewById(R.id.utilityPaymentListView);
-//        listItem.setAdapter(adapter);
-
         currentBalanceFloat = db.getLatestBalance(loggedUserID);
         TextView balanceTopTV = (TextView)findViewById(R.id.utilityTV_balanceTopView);
-
         balanceTopTV.setText(Float.toString(currentBalanceFloat));
 
         lview = (ListView) findViewById(R.id.utilityPaymentListView);
@@ -47,49 +39,34 @@ public class UtilityPaymentActivity extends AppCompatActivity implements Adapter
 
         lview.setAdapter(lviewAdapter);
         lview.setOnItemClickListener(this);
-
-
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
 
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(UtilityPaymentActivity.this);
-
-        // Setting Dialog Title
         alertDialog.setTitle("Confirm Transaction");
-
-        // Setting Dialog Message
         alertDialog.setMessage("Are you sure you want transfer the specified amount?");
 
-        // Setting Positive "Yes" Button
         alertDialog.setPositiveButton("CONFIRM", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog,int which) {
-
-
                 TextView transAmount = (TextView) view.findViewById(R.id.transactionBillAmountTextView);
                 TextView transAgainst = (TextView) view.findViewById(R.id.transactionBillAgainstTextView);
                 float amount = Float.parseFloat(transAmount.getText().toString());
-
-
                 db.addTransaction(new Transaction(loggedUserID,amount,
                         db.getLatestBalance(loggedUserID)-amount,"Db",transAgainst.getText().toString(),transaction.setDateTime()));
-                // Write your code here to invoke YES event
                 Toast.makeText(getApplicationContext(), "Your payment was successful", Toast.LENGTH_SHORT).show();
             }
         });
 
-        // Setting Negative "NO" Button
         alertDialog.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                // Write your code here to invoke NO event
+
                 dialog.cancel();
             }
         });
 
-        // Showing Alert Message
         alertDialog.show();
-
     }
 
 }

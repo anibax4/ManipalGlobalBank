@@ -30,15 +30,6 @@ public class Transaction {
         this.userID = userID;
     }
 
-    //    public Transaction(String userID, float balance, float transactionAmount, String transactionType, String transactionDate, String transactionAgainst) {
-//        this.userID = userID;
-//        this.balance = balance;
-//        this.transactionAmount = transactionAmount;
-//        this.transactionType = transactionType;
-//        this.transactionDate = transactionDate;
-//        this.transactionAgainst = transactionAgainst;
-//    }
-
     public String getUserID() {
 
         return userID;
@@ -75,13 +66,6 @@ public class Transaction {
     public String getTransactionDate() {
         return transactionDate;
     }
-
-//    public String setTransactionDate() {
-//        SimpleDateFormat dateFormat = new SimpleDateFormat(
-//                "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
-//        Date date = new Date();
-//        return dateFormat.format(date);
-//    }
 
     public void setTransactionDate(String transactionDate) {
         this.transactionDate = transactionDate;
