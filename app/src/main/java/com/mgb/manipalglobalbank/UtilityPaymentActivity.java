@@ -34,6 +34,7 @@ public class UtilityPaymentActivity extends AppCompatActivity implements Adapter
         TextView balanceTopTV = (TextView)findViewById(R.id.utilityTV_balanceTopView);
         balanceTopTV.setText(Float.toString(currentBalanceFloat));
 
+
         lview = (ListView) findViewById(R.id.utilityPaymentListView);
         lviewAdapter = new UtilityPaymentAdapter(this, values, number);
 
@@ -47,15 +48,20 @@ public class UtilityPaymentActivity extends AppCompatActivity implements Adapter
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(UtilityPaymentActivity.this);
         alertDialog.setTitle("Confirm Transaction");
         alertDialog.setMessage("Are you sure you want transfer the specified amount?");
+        TextView transAmount = (TextView) view.findViewById(R.id.transactionBillAmountTextView);
+        final float amount = Float.parseFloat(transAmount.getText().toString());
 
         alertDialog.setPositiveButton("CONFIRM", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog,int which) {
-                TextView transAmount = (TextView) view.findViewById(R.id.transactionBillAmountTextView);
-                TextView transAgainst = (TextView) view.findViewById(R.id.transactionBillAgainstTextView);
-                float amount = Float.parseFloat(transAmount.getText().toString());
-                db.addTransaction(new Transaction(loggedUserID,amount,
-                        db.getLatestBalance(loggedUserID)-amount,"Db",transAgainst.getText().toString(),transaction.setDateTime()));
-                Toast.makeText(getApplicationContext(), "Your payment was successful", Toast.LENGTH_SHORT).show();
+                if (currentBalanceFloat > amount) {
+                    TextView transAgainst = (TextView) view.findViewById(R.id.transactionBillAgainstTextView);
+                    db.addTransaction(new Transaction(loggedUserID, amount,
+                            db.getLatestBalance(loggedUserID) - amount, "Db", transAgainst.getText().toString(), transaction.setDateTime()));
+                    Toast.makeText(getApplicationContext(), "Your payment was successful", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Not enough balance for payment of the bill.", Toast.LENGTH_LONG).show();
+                    dialog.cancel();
+                }
             }
         });
 

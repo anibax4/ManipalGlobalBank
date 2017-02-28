@@ -40,27 +40,31 @@ public class TransferFundsActivity extends AppCompatActivity {
     }
 
     public void transferOnClick(View v){
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(TransferFundsActivity.this);
-        alertDialog.setTitle("Confirm Transaction");
-        alertDialog.setMessage("Are you sure you want transfer the specified amount?");
-        alertDialog.setPositiveButton("CONFIRM", new DialogInterface.OnClickListener() {
+        final EditText amountET = (EditText) findViewById(R.id.transferAmountET);
+            if( !amountET.getText().toString().equals("") && amountET.getText().toString().length() > 0 )   {
+                final float amount = Float.parseFloat(amountET.getText().toString());
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(TransferFundsActivity.this);
+                alertDialog.setTitle("Confirm Transaction");
+                alertDialog.setMessage("Are you sure you want transfer the specified amount?");
+                alertDialog.setPositiveButton("CONFIRM", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog,int which) {
-                Intent intent = getIntent();
-                String loggedUserID = intent.getStringExtra("userid");
-                Spinner transAgainst = (Spinner) findViewById(R.id.againstUserIDSpinner);
-                String againstUser = db.getUserID(transAgainst.getSelectedItem().toString());
-                EditText amountET = (EditText) findViewById(R.id.transferAmountET);
-                float amount = Float.parseFloat(amountET.getText().toString());
-
-                db.addTransaction(new Transaction(loggedUserID,amount,
-                        db.getLatestBalance(loggedUserID)-amount,"Db",db.getUserName(againstUser),transaction.setDateTime()));
-                db.addTransaction(new Transaction(againstUser,amount,
-                        db.getLatestBalance(againstUser)+amount,"Cr",db.getUserName(loggedUserID),transaction.setDateTime()));
-
-                TextView balanceTopTV = (TextView)findViewById(R.id.transferTV_balanceTopView);
-                balanceTopTV.setText(Float.toString(currentBalanceFloat));
-                balanceTopTV.invalidate();
-                Toast.makeText(getApplicationContext(), "Your transaction was successful", Toast.LENGTH_SHORT).show();
+                if (currentBalanceFloat > amount) {
+                    Intent intent = getIntent();
+                    String loggedUserID = intent.getStringExtra("userid");
+                    Spinner transAgainst = (Spinner) findViewById(R.id.againstUserIDSpinner);
+                    String againstUser = db.getUserID(transAgainst.getSelectedItem().toString());
+                    db.addTransaction(new Transaction(loggedUserID, amount,
+                            db.getLatestBalance(loggedUserID) - amount, "Db", db.getUserName(againstUser), transaction.setDateTime()));
+                    db.addTransaction(new Transaction(againstUser, amount,
+                            db.getLatestBalance(againstUser) + amount, "Cr", db.getUserName(loggedUserID), transaction.setDateTime()));
+                    TextView balanceTopTV = (TextView) findViewById(R.id.transferTV_balanceTopView);
+                    balanceTopTV.setText(Float.toString(currentBalanceFloat));
+                    balanceTopTV.invalidate();
+                    Toast.makeText(getApplicationContext(), "Your transaction was successful", Toast.LENGTH_SHORT).show();
+                } else  {
+                    Toast.makeText(getApplicationContext(), "Not enough balance to transfer.", Toast.LENGTH_LONG).show();
+                    dialog.cancel();
+                }
             }
         });
 
@@ -71,5 +75,7 @@ public class TransferFundsActivity extends AppCompatActivity {
         });
 
         alertDialog.show();
+        } else
+                Toast.makeText(getApplicationContext(), "Enter amount to transfer.", Toast.LENGTH_SHORT).show();
     }
 }
